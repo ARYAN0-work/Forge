@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,16 @@
       "onFail": "download"
     }
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8"
+  },
+
+  "lint-staged": {
+  "apps/web/**/*.{js,jsx,ts,tsx}": [
+    "pnpm --filter web exec eslint --fix",
+    "pnpm --filter web exec prettier --write"
+  ]
+}
 }
